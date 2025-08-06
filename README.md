@@ -61,6 +61,8 @@ Ces résultats suggèrent que le modèle parvient à **apprendre une représenta
 - La taille réduite des objets à détecter,
 - Le bruit dans les annotations ou la variabilité des images.
 
+- ⚠️ Les métriques d’évaluation (mAP, précision, rappel) sont relativement faibles, mais les résultats visuels restent satisfaisants dans la plupart des cas. Ce décalage souligne une limitation connue des métriques standards, qui ne reflètent pas toujours la qualité perçue visuellement, notamment dans les tâches où quelques détections pertinentes suffisent. Une inspection visuelle reste donc essentielle pour juger de la performance réelle du modèle.
+
 ---
 
 ## 🔧 Pistes d'amélioration

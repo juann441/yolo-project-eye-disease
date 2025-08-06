@@ -43,11 +43,6 @@ Les courbes suivantes montrent l'évolution des principales métriques pendant l
   <img src="metrics.png" alt="Courbes d'entraînement" width="800">
 </p>
 
-### 🔎 Analyse :
-
-Le modèle a du mal à converger proprement
-
-mAP@50 and mAP@50-95 reste bas
 
 Precision et recall fluctuent beaucoup au cours des epochs .
 ---

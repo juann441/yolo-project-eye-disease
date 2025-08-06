@@ -1,9 +1,8 @@
-# 📦 YOLOv8 — Détection de Microcalcifications
+# 📦 YOLOv8 — Détection automatique de lésions de rétinopathie diabétique
 
 ## 🧠 Contexte
 
-Ce projet est une tentative d'appliquer **YOLOv8** à la **détection automatique de microcalcifications** à partir d’images médicales. Les microcalcifications sont des petits dépôts de calcium visibles sur les mammographies, potentiellement indicateurs précoces de cancer du sein.
-
+Ce projet est une tentative d'appliquer **YOLOv8** à la **lésions de rétinopathie diabétique** à partir d’images médicales. 
 Le modèle a été entraîné sur un jeu de données annoté manuellement (taille réduite), avec pour objectif d’évaluer les capacités d’un détecteur à usage général sur ce type d’images.
 
 ---
@@ -12,9 +11,27 @@ Le modèle a été entraîné sur un jeu de données annoté manuellement (taill
 
 L’objectif principal est de :
 
-- Détecter la présence et la localisation des microcalcifications,
+- Détecter la présence et la localisation des lésions,
 - Évaluer les performances quantitatives de YOLOv8 sur un problème médical,
 - Comparer les résultats quantitatifs et qualitatifs (sur images affichées).
+diabétique
+
+## 🧠 Lésions détectées par catégorie (en haut de chaque image) :
+microaneurysms (microanévrismes)
+→ petites taches rouges (points rouges discrets), premiers signes visibles de la rétinopathie.
+
+haemorrhages (hémorragies)
+→ saignements dans la rétine, apparaissent souvent sous forme de taches plus grandes.
+
+hard exudates (exsudats durs)
+→ dépôts jaunes brillants, souvent associés à un œdème maculaire.
+
+soft exudates (exsudats mous ou cotons)
+→ zones blanchâtres floues, signes d’ischémie (souvent appelés « taches cotonneuses »).
+
+optic disc (disque optique)
+→ zone normale de sortie du nerf optique, souvent détectée pour éviter les faux positifs (pas une lésion).
+
 
 ---
 

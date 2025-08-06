@@ -28,11 +28,11 @@ Les courbes suivantes montrent l'évolution des principales métriques pendant l
 
 ### 🔎 Analyse :
 
-- 📦 `box_loss` et `cls_loss` décroissent mais restent relativement élevées,
-- 🎯 `mAP50` plafonne à **0.42** et `mAP50-95` reste bas (≈ 0.27),
-- ⚠️ Une **cassure visible à l’epoch 50** semble indiquer un changement de stratégie d'entraînement (ex. : dégel des couches ou nouveau scheduler),
-- 📉 Le **rappel reste faible (~0.40)**, traduisant un grand nombre de faux négatifs.
+Le modèle a du mal à converger proprement
 
+mAP@50 and mAP@50-95 reste bas
+
+Precision et recall fluctuent beaucoup au cours des epochs .
 ---
 
 ## 🖼️ Observation qualitative

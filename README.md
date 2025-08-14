@@ -43,6 +43,86 @@ Les courbes suivantes montrent l'évolution des principales métriques pendant l
   <img src="metrics.png" alt="Courbes d'entraînement" width="800">
 </p>
 
+## 🩺 Data Augmentation pour la détection de lésions
+
+Lors de l'entraînement du modèle YOLO, différentes **augmentations de données** ont été appliquées pour améliorer la robustesse et la généralisation, tout en restant réalistes pour un contexte médical.
+
+---
+
+### 1. `mosaic=1.0`
+- **Principe** : Combine 4 images différentes dans une seule image.
+- **Effet** :
+  - Varie les arrière-plans et positions.
+  - Modifie l’échelle des objets.
+- **Intérêt médical** :
+  - Simule différentes positions et tailles de lésions.
+  - Désactivé dans les 10 dernières époques (`close_mosaic=10`) pour affiner sur des images réelles.
+
+---
+
+### 2. `mixup=0.2`
+- **Principe** : Superpose deux images avec un ratio aléatoire.
+- **Effet** :
+  - Lisse la frontière entre classes.
+  - Ajoute du bruit visuel.
+- **Intérêt médical** :
+  - Utile pour simuler des lésions peu visibles.
+  - Utilisé modérément (20% des batchs) pour préserver la lisibilité.
+
+---
+
+### 3. `hsv_h=0.015`, `hsv_s=0.5`, `hsv_v=0.4`
+- **Principe** : Variation aléatoire de teinte (H), saturation (S) et luminosité (V).
+- **Effet** :
+  - Simule des différences d’éclairage et de contraste.
+- **Intérêt médical** :
+  - Pertinent pour simuler des variations entre machines ou protocoles d’acquisition.
+
+---
+
+### 4. `degrees=5.0`
+- **Principe** : Rotation aléatoire jusqu’à ±5°.
+- **Effet** :
+  - Rend le modèle robuste aux légères inclinaisons.
+- **Intérêt médical** :
+  - Reflète les petites rotations dues au positionnement du patient.
+
+---
+
+### 5. `translate=0.1`
+- **Principe** : Translation horizontale/verticale jusqu’à 10% de la taille de l’image.
+- **Effet** :
+  - Simule des variations de cadrage.
+- **Intérêt médical** :
+  - Représente les différences de centrage entre acquisitions.
+
+---
+
+### 6. `scale=0.5`
+- **Principe** : Zoom aléatoire (±50%).
+- **Effet** :
+  - Rend le modèle robuste à des tailles variées de lésions.
+- **Intérêt médical** :
+  - Simule des images prises avec différents niveaux de zoom.
+
+---
+
+### 7. `shear=2.0`
+- **Principe** : Cisaillement (skew) horizontal/vertical jusqu’à ±2°.
+- **Effet** :
+  - Introduit de légères distorsions géométriques.
+- **Intérêt médical** :
+  - Simule les étirements liés à la numérisation ou reconstruction d’image.
+
+---
+
+### 8. `flipud=0.0`, `fliplr=0.0`
+- **Principe** : Flip vertical/horizontal (désactivé ici).
+- **Effet** :
+  - Évite d’inverser la gauche/droite ou haut/bas.
+- **Intérêt médical** :
+  - Important pour ne pas fausser l’anatomie.
+
 
 Precision et recall fluctuent beaucoup au cours des epochs .
 ---
